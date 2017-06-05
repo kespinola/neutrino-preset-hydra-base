@@ -20,7 +20,7 @@ module.exports = ({ config }) => {
     .rule('style')
     .test(/\.css$/);
 
-  const extract = ExtractTextPlugin.extract({ use: 'css-loader?modules&localIdentName=[local]__[path][name]__[hash:base64:5]&importLoaders=1', fallback: 'postcss-loader', publicPath: '/build' });
+  const extract = ExtractTextPlugin.extract({ use: ['css-loader?modules&localIdentName=[local]__[path][name]__[hash:base64:5]&importLoaders=1', 'postcss-loader'], fallback: 'style-loader', publicPath: '/build' });
 
   extract.forEach(({ loader, options }) => splitCss.use(loader).loader(loader).options(options));
 
