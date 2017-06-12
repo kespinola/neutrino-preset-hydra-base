@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = ({ config }) => {
   config
     .when(process.env.NODE_ENV === 'production', config => {
-      config.plugin.delete('chunk').end()
+      config.plugins.delete('chunk').end()
       config.output.filename('[name].bundle.js')
     });
 
