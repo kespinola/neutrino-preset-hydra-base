@@ -2,11 +2,9 @@ const { mergeDeepLeft } = require('ramda');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = ({ config }) => {
-  config
-    .when(process.env.NODE_ENV === 'production', config => {
-      config.plugins.delete('chunk').end()
-      config.output.filename('[name].bundle.js')
-    });
+  config.output.filename('[name].bundle.js')
+
+  config.plugins.delete('chunk').end()
 
   config.plugins.delete('html').end()
 
