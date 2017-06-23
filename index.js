@@ -17,7 +17,7 @@ module.exports = ({ config }) => {
 
   const splitCss = config.module
     .rule('style')
-    .test(/\.css$/)
+    .test(/\.s?[ca]ss$/)
 
   const extract = ExtractTextPlugin.extract({ use: ['css-loader?modules&localIdentName=[local]__[path][name]__[hash:base64:5]&importLoaders=1', 'sass-loader'], fallback: 'style-loader', publicPath: '/build' })
 
